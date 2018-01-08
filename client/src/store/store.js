@@ -8,12 +8,15 @@ export default new Vuex.Store({
   state: {
     cart: [
       {
-        title: 'En exempel-produkt',
-        price: 100,
-        description: 'Det bästa exemplaret vi har.',
-        image: 'https://cnet1.cbsistatic.com/img/Q30vGlKlvN2NvEcLGyXUqxtMHlc=/770x433/2016/03/24/ef1abe9b-8d62-4b1d-b6f6-cbf7d91cd84e/iphone-se-21.jpg',
-        amountInStock: 10,
-        rating: 5
+        product: {
+          title: 'En exempel-produkt',
+          price: 100,
+          description: 'Det bästa exemplaret vi har.',
+          image: 'https://cnet1.cbsistatic.com/img/Q30vGlKlvN2NvEcLGyXUqxtMHlc=/770x433/2016/03/24/ef1abe9b-8d62-4b1d-b6f6-cbf7d91cd84e/iphone-se-21.jpg',
+          amountInStock: 10,
+          rating: 5
+        },
+        amount: 2
       }
     ]
   },

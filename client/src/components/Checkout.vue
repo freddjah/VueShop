@@ -8,17 +8,17 @@
 
         <v-list subheader>
           <v-subheader>Products</v-subheader>
-            <v-list-tile avatar v-for="product in cart" v-bind:key="product.title">
+            <v-list-tile avatar v-for="item in cart" v-bind:key="item.product.title">
               <v-list-tile-avatar>
-                <img v-bind:src="product.image"/>
+                <img v-bind:src="item.product.image"/>
               </v-list-tile-avatar>
               
               <v-list-tile-content>
-                <v-list-tile-title v-html="product.title"></v-list-tile-title>
+                <v-list-tile-title v-html="item.product.title"></v-list-tile-title>
               </v-list-tile-content>
               
               <v-list-tile-action>
-                <v-btn flat icon @click="removeProduct(product)">
+                <v-btn flat icon @click="removeProduct(item.product)">
                   <v-icon color="red lighten-1">remove_circle</v-icon>
                 </v-btn>
               </v-list-tile-action>
@@ -64,11 +64,11 @@ export default {
       this.totalCost = this.calculateProductsCost(this.cart)
       this.taxCost = this.calculateTaxCosts(this.totalCost)
     },
-    calculateProductsCost (products) {
+    calculateProductsCost (items) {
       let totalCost = 0
 
-      products.forEach(product => {
-        totalCost += product.price
+      items.forEach(item => {
+        totalCost += item.product.price * item.amount
       })
 
       return totalCost
