@@ -20,13 +20,9 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    
+
     <v-container fluid>
-      <v-layout>
-        <v-flex>
-          <router-view/>
-        </v-flex>
-      </v-layout>
+      <router-view/>
     </v-container>
   </v-app>
 </template>

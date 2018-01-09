@@ -1,6 +1,6 @@
 <template>
   <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
+    <v-flex xs12 md6 offset-md3>
       <v-card>
         <v-toolbar dark>
           <v-toolbar-title class="text-xs-center">Checkout</v-toolbar-title>
@@ -14,7 +14,9 @@
               </v-list-tile-avatar>
               
               <v-list-tile-content>
-                <v-list-tile-title v-html="item.product.title"></v-list-tile-title>
+                <!-- <v-list-tile-title v-html="item.product.title"></v-list-tile-title> -->
+                <v-list-tile-title>{{ item.product.title }}</v-list-tile-title>
+                <v-list-tile-sub-title>Quantity: {{ item.quantity }}</v-list-tile-sub-title>
               </v-list-tile-content>
               
               <v-list-tile-action>
@@ -56,8 +58,7 @@ export default {
   },
   methods: {
     removeProduct (product) {
-      let productIndex = this.cart.indexOf(product)
-      this.$store.dispatch('removeProduct', productIndex)
+      this.$store.dispatch('removeProduct', product)
       this.calculateTotalCosts()
     },
     calculateTotalCosts () {
@@ -68,7 +69,7 @@ export default {
       let totalCost = 0
 
       items.forEach(item => {
-        totalCost += item.product.price * item.amount
+        totalCost += item.product.price * item.quantity
       })
 
       return totalCost

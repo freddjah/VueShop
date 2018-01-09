@@ -1,13 +1,17 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex v-for="product in products" :key="product.title">
-        <v-card>
-          <product v-bind:product="product"/>
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <v-layout>
+    <v-flex md8 offset-md2>
+      <v-container fluid grid-list-md>
+        <v-layout row wrap>
+          <v-flex v-for="product in products" :key="product.title">
+            <v-card>
+              <product v-bind:product="product"/>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
@@ -46,6 +50,11 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    addProduct (product) {
+      this.$store.dispatch('addProduct', product)
+    },
   }
 }
 </script>
