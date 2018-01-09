@@ -10,13 +10,17 @@
       </div>
     </v-card-title>
 
+    <v-flex>
+      <v-divider/>
+    </v-flex>
+
     <v-card-text>
       <h3 class="body-2">DESCRIPTION:</h3>
       <p>{{ product.description }}</p>
     </v-card-text>
 
     <v-card-actions>
-      <v-btn color="success"><v-icon>add_shopping_cart</v-icon>Add to cart</v-btn>
+      <v-btn color="success" @click="addToCart(product)"><v-icon>add_shopping_cart</v-icon>Add to cart</v-btn>
     </v-card-actions>
   </div>
 </template>
@@ -28,6 +32,11 @@ export default {
   props: ['product'],
   components: {
     ProductRating
+  },
+  methods: {
+    addToCart (product) {
+      this.$store.dispatch('addProduct', product)
+    }
   }
 }
 </script>

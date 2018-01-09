@@ -45,6 +45,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    addProduct ({commit}, product) {
+      commit('addProduct', product)
+    },
     removeProduct ({commit}, productIndex) {
       commit('removeProduct', productIndex)
     }

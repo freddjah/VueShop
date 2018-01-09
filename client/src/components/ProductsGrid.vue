@@ -54,7 +54,7 @@ export default {
   methods: {
     addProduct (product) {
       this.$store.dispatch('addProduct', product)
-    },
+    }
   }
 }
 </script>
