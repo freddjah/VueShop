@@ -26,6 +26,7 @@ export default {
       products: [
         {
           title: 'En badboll',
+          ean: '959',
           price: 8,
           description: 'Jättefin är den. Och bra.',
           image: 'https://www.reklamballonger.se/wp-content/gallery/badbollar-och-produktkopior/badboll-corona.jpg',
@@ -34,6 +35,7 @@ export default {
         },
         {
           title: 'En hörlur',
+          ean: '224',
           price: 20,
           description: 'Låter bra gör den. Och är läcker.',
           image: 'https://cdn.shopify.com/s/files/1/0362/2465/products/headroom_headphone-silver_800x.jpg',
@@ -42,6 +44,7 @@ export default {
         },
         {
           title: 'En tv-skärm',
+          ean: '123',
           price: 250,
           description: 'Jättebred. Den har kanaler.',
           image: 'https://icdn2.digitaltrends.com/image/compare-cinema-wide-tv-750x458.jpg',

@@ -5,12 +5,10 @@ Vue.use(Vuex)
 
 function findProductIndex (cart, product) {
   let productIndex = null
-  let currentIndex = 0
 
-  cart.forEach(item => {
-    if (item.product === product) productIndex = currentIndex
-    currentIndex++
-  })
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].product.ean === product.ean) productIndex = i
+  }
 
   return productIndex
 }
@@ -22,6 +20,7 @@ export default new Vuex.Store({
       {
         product: {
           title: 'En exempel-produkt',
+          ean: '3434',
           price: 100,
           description: 'Det bästa exemplaret vi har.',
           image: 'https://cnet1.cbsistatic.com/img/Q30vGlKlvN2NvEcLGyXUqxtMHlc=/770x433/2016/03/24/ef1abe9b-8d62-4b1d-b6f6-cbf7d91cd84e/iphone-se-21.jpg',
@@ -35,7 +34,7 @@ export default new Vuex.Store({
   mutations: {
     addProduct (state, product) {
       const productIndex = findProductIndex(state.cart, product)
-      if (productIndex) state.cart[productIndex].quantity++
+      if (productIndex != null) state.cart[productIndex].quantity++
       else state.cart.push({product: product, quantity: 1})
     },
     removeProduct (state, product) {
